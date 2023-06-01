@@ -7,23 +7,25 @@
  *
  * Return: A ponter to the lowest common ancestor node
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(
+		const binary_tree_t *first, const binary_tree_t *second)
 {
 	const binary_tree_t *curr_1, *curr_2;
-	
+
 	/* Declared 2 variables to loop through to their ancestor */
 
 	curr_1 = first;
 	curr_2 = second;
 	if (first == NULL || second == NULL)
-		return NULL;
+		return (NULL);
 	/**
 	 * While both nodes are not the same and atleast one of them is a valid node,
 	 * keep traversing.
-	 * 
 	 * Update curr_1 and curr_2 based on their parent nodes.
-	 * If the current node is not NULL, we set the corresponding variable to its parent.
-	 * If the current node is NULL, we set the corresponding variable to the other node.
+	 * If the current node is not NULL, we set the corresponding
+	 * variable to its parent.
+	 * If the current node is NULL, we set the corresponding variable
+	 * to the other node.
 	 */
 	while (curr_1 != curr_2 && (curr_1 != NULL || curr_2 != NULL))
 	{
@@ -33,6 +35,6 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 
 	/* If no common ancestor was found */
 	if (curr_1 == NULL && curr_2 == NULL)
-		return NULL;
-	return (binary_tree_t *)curr_1;
+		return (NULL);
+	return ((binary_tree_t *)curr_1);
 }
