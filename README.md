@@ -2,7 +2,7 @@
 
 > This projects covers the concepts of binary trees, tree travasal, Binary search Tree, terminologies in binary tree, difference between a binary tree and a Binary Search Tree, possible gain in terms of time complexity compared to linked lists, depth, height, size of a binary tree, different traversal methods, complete, full, perfect and balanced binary tree.
 
-## Tasks :heavy_check_mark:
+## Project tasks
 
 0. Function that creates a binary tree node
 1. Function that inserts a node as the left-child of another node
