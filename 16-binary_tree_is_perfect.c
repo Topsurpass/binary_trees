@@ -17,7 +17,7 @@ int binary_tree_is_full(const binary_tree_t *tree)
 		return (0);
 
 	/* check if node is a leaf or with no children */
-	if (tree->left == NULL && tree->right == NULL)
+	if (tree && (tree->left == NULL && tree->right == NULL))
 		return (1);
 	/* check if both node children are complete */
 	if (tree->left != NULL && tree->right != NULL)
