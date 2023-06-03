@@ -12,25 +12,21 @@ int binary_tree_is_full(const binary_tree_t *tree)
 	int count_left, count_right;
 
 	count_left = count_right = 0;
+	
 
 	if (tree == NULL)
 		return (0);
 
-	/* check if node is a leaf or with no children */
-	if (tree && (tree->left == NULL && tree->right == NULL))
-		return (1);
-	/* check if both node children are complete */
-	if (tree->left != NULL && tree->right != NULL)
-	{
-		count_left = 1 + binary_tree_is_full(tree->left);
-		count_right = 1 + binary_tree_is_full(tree->right);
+	/**
+	 * This traverse the entire binary tree to
+	 * count the number of children in each side
+	 * of the node (left, right)
+	 */
+	count_left = binary_tree_is_full(tree->left);
+	count_right = binary_tree_is_full(tree->right);
 
-		if (count_right == 1 && count_right != 0 && count_left != 0)
-			return (1);
-
-		return (0);
-	}
-	return (0);
+	/* Return the sum of the left, right and the current node */
+	return (count_left + 1 + count_right);
 }
 /**
  * binary_tree_is_perfect - Checks if a binary tree is perfect
@@ -41,13 +37,19 @@ int binary_tree_is_full(const binary_tree_t *tree)
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int count = 0;
+	int count_left, count_right;
+
+	count_left = count_right = 0;
 
 	if (tree == NULL)
 		return (0);
 
-	count = binary_tree_is_full(tree);
-	if (count != 0)
+	/* count all nodes on both sides of the tree */
+	count_left = binary_tree_is_full(tree->left);
+	count_right = binary_tree_is_full(tree->right);
+
+	/* If no of nodes on both sides are the same */
+	if (count_left == count_right)
 		return (1);
 
 	return (0);

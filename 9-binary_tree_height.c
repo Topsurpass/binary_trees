@@ -16,19 +16,18 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	/* Recussively count the left sub-tree */
+	/* Recussively count the left sub-tree + parent node */
 	if (tree->left)
-		count_left += binary_tree_height(tree->left);
+		count_left = 1 + binary_tree_height(tree->left);
 
-	/* Recussively count the right sub-tree */
+	/* Recussively count the right sub-tree + parent node*/
 	if (tree->right)
-		count_right += binary_tree_height(tree->right);
+		count_right = 1 + binary_tree_height(tree->right);
 
 	/**
 	 * Get the maximum value between left and right sub-tree
-	 * +1 add the current node / parent with each child
 	 */
-	total = count_left > count_right ? count_left + 1 : count_right + 1;
+	total = count_left > count_right ? count_left : count_right;
 
 	return (total);
 }
